@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Zenith | Oficial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --cor-primaria: #0f1a2f; /* preto azulado */
+      --cor-secundaria: #1976d2; /* azul principal */
+      --cor-fundo: #f5f6fa; /* branco gelo */
+      --cor-branco: #fff;
+      --cor-cinza: #888;
+      --cor-destaque: #1565c0; /* azul escuro */
+      --cor-gradiente: linear-gradient(90deg, #0f1a2f 60%, #1976d2 100%);
+      --cor-gradiente-bg: linear-gradient(120deg, #e3eafc 0%, #1565c0 100%);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    }
+    body {
+          background: var(--cor-gradiente-bg);
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          padding: 32px 0 0 0;
+        }
+    .catalogo-container {
+      background: var(--cor-branco);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(233,69,96,0.12), 0 2px 8px rgba(0,0,0,0.08);
+      max-width: 900px;
+      width: 95vw;
+      min-width: 320px;
+      margin: 40px auto 0 auto;
+      padding: 0 0 0 0;
+      animation: fadeUp .8s cubic-bezier(.77,0,.175,1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .catalogo-header {
+      background: var(--cor-gradiente);
+      padding: 40px 0 24px 0;
+      text-align: center;
+      border-radius: 0 0 40% 40% / 0 0 18% 18%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      width: 100%;
+    }
+    .catalogo-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--cor-branco);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      animation: logoPop .7s cubic-bezier(.77,0,.175,1);
+    }
+    @keyframes logoPop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .catalogo-logo img {
+      max-width: 80px;
+      max-height: 80px;
+      border-radius: 50%;
+    }
+    .catalogo-titulo {
+      font-size: 1.7rem;
+      color: var(--cor-branco);
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 8px rgba(21,101,192,0.10);
+    }
+    .catalogo-sub {
+      color: #e3eafc;
+      font-size: 1rem;
+      margin-bottom: 0;
+      opacity: 0.85;
+    }
+    .catalogo-capa {
+      position: relative;
+      margin: 32px auto 0 auto;
+      width: 70%;
+      min-width: 320px;
+      max-width: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(21,101,192,0.10);
+      transition: box-shadow .3s, transform .3s;
+      cursor: pointer;
+      animation: fadeUp .8s .2s backwards;
+      display: block;
+    }
+    .catalogo-capa img {
+      width: 100%;
+      display: block;
+      transition: transform .4s;
+    }
+    .catalogo-capa:hover {
+      box-shadow: 0 8px 32px rgba(233,69,96,0.18);
+      transform: scale(1.03);
+    }
+    .catalogo-capa::after {
+      content: 'Clique para visualizar';
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cor-destaque);
+      color: var(--cor-branco);
+      padding: 7px 18px;
+      border-radius: 18px;
+      font-size: 1rem;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.10);
+    }
+    .catalogo-capa:hover::after {
+      opacity: 1;
+    }
+    .catalogo-actions {
+      margin: 48px auto 0 auto;
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 80%;
+      background: var(--cor-gradiente);
+      border-radius: 16px;
+      padding: 32px 0 32px 0;
+      box-shadow: 0 2px 12px rgba(21,101,192,0.10);
+      margin-bottom: 32px;
+    }
+    .catalogo-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: 180px;
+      padding: 18px 0;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.12rem;
+      text-decoration: none;
+      transition: background .3s, color .3s, box-shadow .3s, transform .2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      cursor: pointer;
+      margin: 0 0 0 0;
+      border: none;
+    }
+    .catalogo-btn:hover {
+      transform: scale(1.06);
+    }
+    .catalogo-btn.visualizar {
+      background: var(--cor-destaque);
+      color: var(--cor-branco);
+      box-shadow: 0 2px 8px rgba(21,101,192,0.10);
+    }
+    .catalogo-btn.visualizar:hover {
+      background: var(--cor-primaria);
+      color: #fff;
+    }
+    .catalogo-btn.baixar {
+      background: var(--cor-branco);
+      color: var(--cor-destaque);
+      border: 2px solid var(--cor-destaque);
+      box-shadow: 0 2px 8px rgba(21,101,192,0.10);
+    }
+    .catalogo-btn.baixar:hover {
+      background: var(--cor-secundaria);
+      color: #fff;
+      border-color: var(--cor-secundaria);
+    }
+    .catalogo-btn.whats {
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.10);
+    }
+    .catalogo-btn.whats:hover {
+      background: #1fb858;
+    }
+    .catalogo-footer {
+      background: var(--cor-gradiente);
+      color: #fff;
+      font-size: 1.08rem;
+      text-align: center;
+      padding: 24px 0 18px 0;
+      border-radius: 0 0 22px 22px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .catalogo-footer span {
+      font-size: 0.95em;
+      opacity: 0.85;
+    }
+    @media (max-width: 700px) {
+      .catalogo-container {
+        max-width: 99vw;
+        width: 99vw;
+        margin: 0;
+        border-radius: 0;
+        padding: 0;
+      }
+      .catalogo-header {
+        padding: 24px 0 12px 0;
+      }
+      .catalogo-capa {
+        width: 95vw;
+        max-width: 99vw;
+        min-width: 180px;
+      }
+      .catalogo-actions {
+        gap: 12px;
+      }
+      .catalogo-btn {
+        min-width: 120px;
+        font-size: 0.98rem;
+        padding: 12px 0;
+      }
+      .catalogo-footer {
+        font-size: 0.95rem;
+        padding: 14px 0 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="catalogo-container">
+    <div class="catalogo-header">
+      <div class="catalogo-logo">
+        <img src="logo.png" alt="Zenith Logo">
+      </div>
+      <div class="catalogo-titulo">Catálogo Oficial Zenith</div>
+      <div class="catalogo-sub">Soluções profissionais em lacração, segurança e logística</div>
+    </div>
+    <a href="catalogo.pdf" target="_blank" class="catalogo-capa">
+      <img src="capa.jpg" alt="Catálogo Zenith">
+    </a>
+    <div class="catalogo-actions">
+      <a href="catalogo.pdf" target="_blank" class="catalogo-btn visualizar">
+        📖 Visualizar catálogo
+      </a>
+      <a href="catalogo.pdf" download class="catalogo-btn baixar">
+        ⬇️ Baixar catálogo
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=551120240427" target="_blank" class="catalogo-btn whats">
+        💬 Consultar via WhatsApp
+      </a>
+    </div>
+    <div class="catalogo-footer">
+      Zenith © 2026 &bull; <span>Catálogo exclusivo para consulta e compartilhamento profissional</span>
+    </div>
+  </div>
+</body>
+</html>
